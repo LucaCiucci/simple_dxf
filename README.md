@@ -29,7 +29,7 @@ The current version of this library requires the `DxfPlate/` folder to be copied
 If you are using CMake, you can use the following cmake code:
 ```cmake
 add_custom_command(TARGET your_executable POST_BUILD
-	COMMAND ${CMAKE_COMMAND} -E copy_directory ${SIMPLE_PDF_DXFPLATE_DIR} $<TARGET_FILE_DIR:example_basic_usage>/DxfPlate/
+	COMMAND ${CMAKE_COMMAND} -E copy_directory ${SIMPLE_PDF_DXFPLATE_DIR} $<TARGET_FILE_DIR:your_executable>/DxfPlate/
 )
 ```
 
