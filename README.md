@@ -22,6 +22,17 @@ target_link_libraries(your_target PRIVATE simple_dxf)
 ```
 If you are not using cmake, you can just add the [/include](./include) to your include path and link against the [/src](./src) folder.
 
+### Post build steps
+
+The current version of this library requires the `DxfPlate/` folder to be copied to the same folder of the executable. This is because the library uses the `DxfPlate/` folder to load some resources. This will be fixed in the future.
+
+If you are using CMake, you can use the following cmake code:
+```cmake
+add_custom_command(TARGET your_executable POST_BUILD
+	COMMAND ${CMAKE_COMMAND} -E copy_directory ${SIMPLE_PDF_DXFPLATE_DIR} $<TARGET_FILE_DIR:example_basic_usage>/DxfPlate/
+)
+```
+
 ### Writing a DXF file
 
 You can follow the [basic_usage](./examples/basic_usage) example to see how to write a DXF file. In short, you just have to include `<simple_dxf/dxf.h>` and then:
